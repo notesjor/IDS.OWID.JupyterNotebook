@@ -1,15 +1,9 @@
-name: xeus-kernel
+name: build-env
 channels:
-  - https://repo.prefix.dev/emscripten-forge-dev
-  - https://repo.prefix.dev/conda-forge
+  - conda-forge
 dependencies:
-  - xeus-python
-  - ipycanvas
-  - numpy
-  - matplotlib
-  - plotly
-  - plotly[express]
-  - pandas
-  - dayplot
-  - pydantic
-  - requests
+  - python
+  - pip
+  - jupyter_server
+  - jupyterlite-core >=0.6
+  - jupyterlite-xeus >=4
