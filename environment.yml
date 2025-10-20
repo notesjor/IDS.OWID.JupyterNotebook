@@ -5,3 +5,11 @@ channels:
 dependencies:
   - xeus-python
   - ipycanvas
+  - numpy
+  - matplotlib
+  - plotly
+  - plotly[express]
+  - pandas
+  - dayplot
+  - pydantic
+  - requests
