@@ -14,3 +14,6 @@ dependencies:
   - pydantic
   - requests
   - nbformat
+  - pyarrow
+  - fastparquet
+  - wordcloud
