@@ -15,5 +15,4 @@ dependencies:
   - requests
   - nbformat
   - pyarrow
-  - fastparquet
   - wordcloud
