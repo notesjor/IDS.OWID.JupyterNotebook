@@ -16,3 +16,4 @@ dependencies:
   - nbformat
   - pyarrow
   - wordcloud
+  - fastparquet
