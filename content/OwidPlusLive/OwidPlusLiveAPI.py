@@ -15,6 +15,7 @@ import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
 import dayplot as dp
+import json
 # <<<<<<< Ende Dependencies / Importierte Module <<<<<<<
 
 # >>>>>>> Basis-Konfiguration (bitte hier nichts verändern) >>>>>>> 
@@ -25,11 +26,11 @@ baseUrl = "https://www.owid.de/plus/live-2021/api/v3"
 layer = {"Wortform": 0, "Lemma": 1, "POS": 2}
 
 # Lade verfügbare Jahre.
-years = requests.get(f"{baseUrl}/years").json()
+years = json.loads(requests.get(f"{baseUrl}/years").content.decode("utf-8-sig"))
 years.sort(reverse=True)
 
 # Lade Normdaten für N-Gramme (1, 2, 3).
-response = requests.get(f"{baseUrl}/norm").json()
+response = json.loads(requests.get(f"{baseUrl}/norm").content.decode("utf-8-sig"))
 normGram = {i + 1: dict(sorted(response[i].items())) for i in range(3)}
 
 # Vordefinierte Granulationsfunktionen
@@ -135,7 +136,7 @@ def __search(n: int, year: int, items: list[SearchItem]) -> pd.DataFrame:
         }
         response = requests.post(f"{baseUrl}/search", json=payload) # API-Anfrage
         response.raise_for_status() # Fehlerbehandlung
-        tmp = response.json() # Suchergebnisse extrahieren
+        tmp = json.loads(response.content.decode("utf-8-sig")) # Suchergebnisse extrahieren
 
         for ngram, value in tmp.items(): # Ergebnisse in DataFrame umwandeln
             for date, freq in value.items(): # Datum und Frequenz extrahieren
@@ -170,7 +171,7 @@ def __lookup(year: int, layer: LayerName, wordformSet: set) -> dict:
     }
     response = requests.post(f"{baseUrl}/lookup", json=payload) # API-Anfrage
     response.raise_for_status() # Fehlerbehandlung
-    tmp = response.json().get("Lookup", "").split(" ") # Lookup-Ergebnisse extrahieren
+    tmp = json.loads(response.content.decode("utf-8-sig")).get("Lookup", "").split(" ") # Lookup-Ergebnisse extrahieren
     if len(tmp) != len(wordformSet): # Überprüfen, ob die Anzahl der Ergebnisse mit der Anzahl der Suchbegriffe übereinstimmt
         print(len(tmp), len(wordformSet)) # Debug-Ausgabe
         raise ValueError("Lookup-Ergebnisse stimmen nicht mit der Anzahl der Suchbegriffe überein.") # Fehler werfen
