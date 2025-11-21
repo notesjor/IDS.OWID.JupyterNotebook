@@ -9,7 +9,7 @@ build-site:
     - apt-get update && apt-get install -y curl bzip2 git
 
     # Micromamba installieren
-    - curl -L https://micro.mamba.pm/api/micromamba/linux-64/1.5.8-0 | tar -xvj bin/micromamba
+    - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
     - export PATH="$CI_PROJECT_DIR/bin:$PATH"
 
     # Micromamba-Environment erstellen
