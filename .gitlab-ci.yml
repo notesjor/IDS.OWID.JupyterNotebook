@@ -1,0 +1,28 @@
+stages:
+  - build
+
+build-site:
+  stage: build
+  image: ubuntu:latest
+  before_script:
+    # Systempakete installieren
+    - apt-get update && apt-get install -y curl bzip2 git
+
+    # Micromamba installieren
+    - curl -L https://micro.mamba.pm/api/micromamba/linux-64/1.5.8-0 | tar -xvj bin/micromamba
+    - export PATH="$CI_PROJECT_DIR/bin:$PATH"
+
+    # Micromamba-Environment erstellen
+    - micromamba create -y -f build-environment.yml -n build-env
+    - eval "$(micromamba shell hook -s bash)"
+    - micromamba activate build-env
+
+  script:
+    - cp README.md content/
+    - jupyter lite build --contents content --output-dir dist
+
+  artifacts:
+    name: "jupyterlite-build-$CI_COMMIT_SHA"
+    paths:
+      - dist/
+    expire_in: 1 week
