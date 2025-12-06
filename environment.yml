@@ -17,7 +17,3 @@ dependencies:
   - pyarrow
   - wordcloud
   - xeus-r
-  - knitr
-  - dplyr
-  - vroom
-  - ggplot2
