@@ -19,6 +19,8 @@ dependencies:
   - wordcloud
   - altair
   - venn
+  - xlsxwriter
+  - calamine
   - xeus-r
   - r-knitr
   - r-dplyr
