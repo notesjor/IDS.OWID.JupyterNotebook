@@ -7,7 +7,6 @@ dependencies:
   - ipycanvas
   - numpy
   - matplotlib
-  - matplotlib_venn
   - lxml
   - plotly
   - plotly[express]
