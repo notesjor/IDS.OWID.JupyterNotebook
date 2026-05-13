@@ -20,7 +20,7 @@ dependencies:
   - altair
   - venn
   - xlsxwriter
-  - python-calamine
+  - pylightxl
   - xeus-r
   - r-knitr
   - r-dplyr
