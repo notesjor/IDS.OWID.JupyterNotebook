@@ -17,6 +17,8 @@ dependencies:
   - nbformat
   - pyarrow
   - wordcloud
+  - altair
+  - venn
   - xeus-r
   - r-knitr
   - r-dplyr
