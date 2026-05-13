@@ -5,3 +5,21 @@ channels:
 dependencies:
   - xeus-python
   - ipycanvas
+  - numpy
+  - matplotlib
+  - matplotlib_venn
+  - lxml
+  - plotly
+  - plotly[express]
+  - pandas
+  - dayplot
+  - pydantic
+  - requests
+  - nbformat
+  - pyarrow
+  - wordcloud
+  - xeus-r
+  - r-knitr
+  - r-dplyr
+  - r-vroom
+  - r-ggplot2
