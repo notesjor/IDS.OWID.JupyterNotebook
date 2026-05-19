@@ -1,83 +1,62 @@
-# Xeus-Lite demo
+# Willkommen bei den WASM-basierten Jupyter-Notebooks von OWIDplus
 
-[![lite-badge](https://jupyterlite.rtfd.io/en/latest/_static/badge.svg)](https://jupyterlite.github.io/xeus-lite-demo/notebooks/?path=demo.ipynb)
+Willkommen auf der WASM-basierten Jupyter-Notebook-Lösung von OWIDplus. 
+OWIDplus ist eine Plattform für lexikalische Ressourcen des Leibniz-Institut für Deutsche Sprache (Mannheim). 
+Die hier angebotenen Jupyter-Notebooks basieren auf der Technologie WebAssembly (WASM). 
+Dabei werden Programmiersprachen wie beispielsweise Python oder R so übersetzt, dass sie direkt im Webbrowser ausgeführt werden können - 
+ganz ohne zusätzliche lokale Installation.
 
-This GitHub template allows you to create deployments of JupyterLite with a custom set of conda packages.
+Die bereitgestellten Jupyter-Notebooks sind vollständig interaktiv. 
+Der enthaltene Code wird direkt in Ihrem Webbrowser ausgeführt. 
+Sie können vorhandenen Code verändern, ergänzen oder auch eigene Notebooks laden und verwenden. 
+Bitte beachten Sie, dass sämtliche Berechnungen und Verarbeitungen ausschließlich auf Ihrem eigenen Rechner stattfinden. 
 
-## 💡 How to make your own deployment
+Darüber hinaus ist zu bedenken, dass nur bestimmte Pakete und Bibliotheken bereits vorinstalliert sind. 
+Weitere Informationen hierzu finden Sie im Abschnitt „Pakete / Technischer Hintergrund“.
 
-Creating a new deployment can be done in three easy steps:
+# Kotakt / Rechtliche Hinweise
 
-**Step 1: Apply the GitHub template**
+- Bei Fragen zu dieser Plattform wenden Sie sich bitte an: [Jan Oliver Rüdiger](https://perso.ids-mannheim.de/seiten/ruediger.html)
+- [Datenschutzhinweis](https://www.owid.de/wb/owid/privacy.html)
+- [Impressum](https://www.owid.de/wb/owid/impressum.html)
 
-1. Click the **"Use this template"** button in the upper right corner of the GitHub repository.
-2. Choose a name for your project and select the GitHub organization where you want to create it.
-3. Then hit **"Create repository from template"** to finalize the setup.
+# Pakete / Technischer Hintergrund
 
-**Step 2: Enable building the GitHub pages from GitHub actions.**
+Für die Ausführung der Python-Umgebung verwenden wir xeus-python in Version 13.3. 
+Die folgenden Pakete sind bereits vorinstalliert und können direkt verwendet werden:
 
-1. Once your repository is created, enable GitHub Pages by configuring GitHub Actions. This will build and deploy your site automatically.
-2. Your deployment will be accessible at the following URL: https://{USERNAME}.github.io/{DEMO_REPO_NAME}.
+- ipycanvas
+- numpy
+- matplotlib
+- lxml
+- plotly
+- plotly[express]
+- pandas
+- dayplot
+- pydantic
+- requests
+- nbformat
+- pyarrow
+- wordcloud
+- altair
+- venn
+- xlsxwriter
+- pytest
+- ipytest
 
-**Step 3: Customize your conda environment**
+Zusätzlich besteht die Möglichkeit, eigene Python-Packages zu installieren. 
+Hierzu kann der Befehl `%pip install [package]` verwendet werden. 
+Bitte berücksichtigen Sie dabei, dass ausschließlich Pakete funktionieren, die vollständig in Python implementiert sind. 
+Pakete, die beispielsweise lediglich Wrapper für C- oder C++-Bibliotheken darstellen, können in der WASM-Umgebung nicht verwendet werden.
 
-1. Update your ``environment.yml`` file to include the required packages.
-2. This ensures that your environment has all the necessary dependencies.
+# Python- / R-Support
 
-## 🎬 Visual Guide
+Python wird innerhalb der WASM-basierten Umgebung bereits sehr gut unterstützt und kann für viele typische Datenanalyse- und Verarbeitungsaufgaben 
+problemlos eingesetzt werden. Der Support für R befindet sich derzeit hingegen noch in einem sehr experimentellen Stadium. 
+Entsprechend kann es hierbei noch zu Einschränkungen oder Inkompatibilitäten kommen.
 
-For a step-by-step visual guide, check out the screencast below:
+# Hinweis zu Daten
 
-![Deploy your own](deploy.gif)
-
-## 📦 How to install kernels and packages
-
-You can install specific kernels and extra packages by adding them to the ``environment.yml`` file.
-
-See https://jupyterlite-xeus.readthedocs.io/en/latest/environment.html for more documentation.
-
-### Example 1: JupyterLite with NumPy and Matplotlib
-
-To create a JupyterLite deployment with NumPy and Matplotlib pre-installed, edit the ``environment.yml`` file as follows:
-
-```yml
-name: xeus-kernel
-channels:
-  - https://repo.prefix.dev/emscripten-forge-dev
-  - https://repo.prefix.dev/conda-forge
-dependencies:
-  - xeus-python
-  - numpy
-  - matplotlib
-```
-
-### Example 2: JupyterLite with R and coursekata
-
-To use the R kernel and the coursekata package, edit the environment.yml file as follows:
-
-```yml
-name: xeus-kernel
-channels:
-  - https://repo.prefix.dev/emscripten-forge-dev
-  - https://repo.prefix.dev/conda-forge
-dependencies:
-  - xeus-r
-  - r-coursekata
-```
-
-### Example 3: JupyterLite with C++
-
-To use the C++ kernel, edit the environment.yml file as follows:
-
-```yml
-name: xeus-kernel
-channels:
-  - https://repo.prefix.dev/emscripten-forge-dev
-  - https://repo.prefix.dev/conda-forge
-dependencies:
-  - xeus-cpp
-```
-
-## 📦 How to install other jupyterlite plugins
-
-If you want to install jupyterlite plugins, e.g. `jupyterlite-terminal`, add those plugins to the `.github/build-environment.yml` file.
+Wie bereits erwähnt, erfolgt die gesamte Verarbeitung direkt in Ihrem Webbrowser. 
+Dateien, die durch Skripte oder Jupyter-Notebooks erzeugt oder verändert werden, werden ebenfalls direkt im Browser gespeichert. 
+Diese Daten bleiben so lange erhalten, bis der Browser-Verlauf beziehungsweise der Browser-Cache gelöscht wird.
