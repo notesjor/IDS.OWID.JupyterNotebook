@@ -20,6 +20,8 @@ dependencies:
   - altair
   - venn
   - xlsxwriter
+  - pytest
+  - ipytest
   - xeus-r
   - r-knitr
   - r-dplyr
