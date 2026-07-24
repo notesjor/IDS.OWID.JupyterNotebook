@@ -22,9 +22,7 @@ dependencies:
   - xlsxwriter
   - pytest
   - ipytest
-  - sklearn
-  - smart_open
-  - gensim
+  - scikit-learn
   - xeus-r
   - r-knitr
   - r-dplyr
