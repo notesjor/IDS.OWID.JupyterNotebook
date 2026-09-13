@@ -22,6 +22,7 @@ dependencies:
   - xlsxwriter
   - pytest
   - ipytest
+  - pygwalker
   - scikit-learn
   - xeus-r
   - r-knitr
