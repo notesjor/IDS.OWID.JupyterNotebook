@@ -24,7 +24,9 @@ dependencies:
   - ipytest
   - scikit-learn
   - itables
-  - perspective-python[jupyter]
+  - pip
+  - pip:
+    - perspective-python[jupyter]
   - xeus-r
   - r-knitr
   - r-dplyr
