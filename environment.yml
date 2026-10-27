@@ -23,6 +23,8 @@ dependencies:
   - pytest
   - ipytest
   - scikit-learn
+  - itables
+  - perspective-python[jupyter]
   - xeus-r
   - r-knitr
   - r-dplyr
