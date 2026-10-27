@@ -27,8 +27,3 @@ dependencies:
   - pip
   - pip:
     - perspective-python[jupyter]
-  - xeus-r
-  - r-knitr
-  - r-dplyr
-  - r-vroom
-  - r-ggplot2
