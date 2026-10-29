@@ -25,4 +25,5 @@ dependencies:
   - ipytest
   - scikit-learn
   - itables
-  - pygwalker
+  - lib2to3
+  - pygwalker>=0.5.0
