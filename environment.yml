@@ -25,3 +25,4 @@ dependencies:
   - ipytest
   - scikit-learn
   - itables
+  - pygwalker
